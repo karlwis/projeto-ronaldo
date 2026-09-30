@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	'myauth',
 ]
 
 MIDDLEWARE = [
@@ -72,10 +73,12 @@ WSGI_APPLICATION = 'meu_projeto.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
+AUTH_USER_MODEL = "myauth.User"
+
 DATABASES = {
     'default': {
-         (...)
-        'NAME': os.path.join(BASE_DIR, nome.sqlite3'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'nome.sqlite3',
     }
 }
 
