@@ -454,3 +454,4 @@ pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python,django,visualstudiocode,pycharm+all,test
 .env
+.scannerwork/
