@@ -1,2 +1,4 @@
 Django==6.1.1
 python-decouple
+pytest
+pytest-django
