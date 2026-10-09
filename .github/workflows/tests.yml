@@ -10,6 +10,10 @@ jobs:
   testes:
     runs-on: ubuntu-latest
 
+    env:
+      SECRET_KEY: "chave-falsa-exclusiva-para-testes"
+      DEBUG: "False"
+
     steps:
       - name: Baixar o código
         uses: actions/checkout@v4
