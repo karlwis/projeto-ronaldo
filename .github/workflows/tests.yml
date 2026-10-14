@@ -31,5 +31,18 @@ jobs:
       - name: Instalar navegador do Playwright
         run: python -m playwright install --with-deps chromium
 
+      - name: Iniciar servidor Django
+        run: |
+          python src/manage.py migrate --noinput
+          python src/manage.py runserver 0.0.0.0:8000 > /tmp/django.log 2>&1 &
+          for i in {1..30}; do
+            if curl --fail --silent http://localhost:8000/ > /dev/null; then
+              echo "Servidor Django iniciado."
+              break
+            fi
+            sleep 1
+          done
+          curl --fail http://localhost:8000/ || (cat /tmp/django.log && exit 1)
+
       - name: Executar testes
         run: pytest
