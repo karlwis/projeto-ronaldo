@@ -455,3 +455,8 @@ pyrightconfig.json
 # End of https://www.toptal.com/developers/gitignore/api/python,django,visualstudiocode,pycharm+all,test
 .env
 .scannerwork/
+
+# Permite versionar os testes E2E do projeto
+!tests/
+!tests/e2e/
+!tests/e2e/test_home.py
