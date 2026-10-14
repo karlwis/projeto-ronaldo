@@ -3,3 +3,6 @@ python-decouple==3.8
 pytest
 pytest-django
 pytest-cov==7.1.0
+
+# Testes E2E com navegador
+playwright==1.64.0
