@@ -45,4 +45,4 @@ jobs:
           curl --fail http://localhost:8000/ || (cat /tmp/django.log && exit 1)
 
       - name: Executar testes
-        run: pytest
+        run: pytest --cov=src/myauth --cov-report=term-missing --cov-fail-under=85
