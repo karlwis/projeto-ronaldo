@@ -24,3 +24,6 @@ else
     echo "Erro: integridade do backup não confirmada." >&2
     exit 1
 fi
+
+# Remove backups com mais de 30 dias, após validar o novo backup.
+find "$BACKUP_DIR" -maxdepth 1 -type f -name 'nome_*.sqlite3' -mtime +30 -delete
