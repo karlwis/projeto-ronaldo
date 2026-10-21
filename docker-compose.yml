@@ -7,4 +7,3 @@ services:
       - .env
     volumes:
       - ./src:/app/src
-      - ./src/nome.sqlite3:/app/src/nome.sqlite3
