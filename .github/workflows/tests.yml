@@ -63,4 +63,3 @@ jobs:
             -Dsonar.projectKey=Projeto-Ronaldo
             -Dsonar.organization=karlwis
             -Dsonar.python.coverage.reportPaths=coverage.xml
-```
