@@ -1,4 +1,5 @@
-name: Testes Django
+```yaml
+name: Testes Django e SonarQube Cloud
 
 on:
   push:
@@ -17,6 +18,8 @@ jobs:
     steps:
       - name: Baixar o código
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
 
       - name: Configurar Python
         uses: actions/setup-python@v7
@@ -44,5 +47,21 @@ jobs:
           done
           curl --fail http://localhost:8000/ || (cat /tmp/django.log && exit 1)
 
-      - name: Executar testes
-        run: pytest --cov=src/myauth --cov-report=term-missing --cov-fail-under=85
+      - name: Executar testes e gerar cobertura
+        run: |
+          pytest --cov=src/myauth \
+            --cov-report=term-missing \
+            --cov-report=xml:coverage.xml \
+            --cov-fail-under=85
+
+      - name: Analisar com SonarQube Cloud
+        uses: SonarSource/sonarqube-scan-action@v7
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.host.url=https://sonarcloud.io
+            -Dsonar.projectKey=Projeto-Ronaldo
+            -Dsonar.organization=karlwis
+            -Dsonar.python.coverage.reportPaths=coverage.xml
+```
