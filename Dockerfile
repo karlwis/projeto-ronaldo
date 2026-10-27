@@ -2,10 +2,16 @@ FROM python:3.14-slim
 
 WORKDIR /app
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY requirements-lock.txt .
+
+RUN pip install --no-cache-dir --only-binary=:all: --require-hashes -r requirements-lock.txt
 
 COPY src/ /app/src/
+
+RUN useradd --create-home --shell /usr/sbin/nologin appuser \
+    && chown -R appuser:appuser /app
+
+USER appuser
 
 WORKDIR /app/src
 
