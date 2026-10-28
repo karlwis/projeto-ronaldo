@@ -48,7 +48,7 @@ jobs:
 
       - name: Executar testes e gerar cobertura
         run: |
-          pytest --cov=src/myauth \
+          pytest --cov=src \
             --cov-report=term-missing \
             --cov-report=xml:coverage.xml \
             --cov-fail-under=85
