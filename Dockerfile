@@ -8,6 +8,9 @@ RUN pip install --no-cache-dir --only-binary=:all: --require-hashes -r requireme
 
 COPY src/ /app/src/
 
+RUN python -m compileall -q /app/src \
+    && SECRET_KEY=build-only-placeholder python /app/src/manage.py collectstatic --noinput
+
 RUN useradd --create-home --shell /usr/sbin/nologin appuser \
     && chown -R appuser:appuser /app
 

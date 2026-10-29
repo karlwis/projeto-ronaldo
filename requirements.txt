@@ -7,3 +7,4 @@ pytest-cov==7.1.0
 # Testes E2E com navegador
 playwright==1.64.0
 gunicorn==23.0.0
+whitenoise==6.12.0
