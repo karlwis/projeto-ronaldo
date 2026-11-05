@@ -18,3 +18,15 @@ class HomeViewTest(TestCase):
         response = self.client.get(reverse('home'))
 
         self.assertEqual(response['Content-Type'], 'text/html; charset=utf-8')
+
+class HealthViewTest(TestCase):
+    def test_health_returns_200_and_expected_content(self):
+        response = self.client.get(reverse('health'))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'OK')
+
+    def test_health_rejects_post(self):
+        response = self.client.post(reverse('health'))
+
+        self.assertEqual(response.status_code, 405)
