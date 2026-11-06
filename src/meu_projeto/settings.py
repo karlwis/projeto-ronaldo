@@ -136,15 +136,15 @@ LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'formatters': {
-        'verbose': {
-            'format': '{asctime} {levelname} {name} {message}',
-            'style': '{',
+        'json': {
+            '()': 'pythonjsonlogger.json.JsonFormatter',
+            'fmt': '%(asctime)s %(levelname)s %(name)s %(message)s',
         },
     },
     'handlers': {
         'console': {
             'class': 'logging.StreamHandler',
-            'formatter': 'verbose',
+            'formatter': 'json',
         },
     },
     'root': {
