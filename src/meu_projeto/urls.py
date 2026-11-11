@@ -1,9 +1,10 @@
 from django.contrib import admin
 from django.urls import path
-from myauth.views import home, health
+from myauth.views import home, health, metrics
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('health/', health, name='health'),
+    path('metrics/', metrics, name='metrics'),
 ]

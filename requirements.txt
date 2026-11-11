@@ -9,3 +9,4 @@ playwright==1.64.0
 gunicorn==23.0.0
 whitenoise==6.12.0
 python-json-logger==4.2.0
+prometheus-client==0.26.0
