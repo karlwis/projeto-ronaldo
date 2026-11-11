@@ -16,6 +16,7 @@ from django.http import HttpResponse
 from prometheus_client import CONTENT_TYPE_LATEST, generate_latest
 
 
+@require_GET
 def metrics(request):
     return HttpResponse(
         generate_latest(),
