@@ -1,82 +1,70 @@
 # Projeto Ronaldo
 
-Projeto de aprendizado em desenvolvimento de software e DevOps, criado por um iniciante e executado na máquina virtual `ronaldo-test`.
+## Um laboratório de aprendizagem em desenvolvimento de software e DevOps
 
-## 1. Sobre o projeto
+O Projeto Ronaldo é um projeto pessoal de estudos, treinamento e experimentação tecnológica. Seu propósito é proporcionar uma experiência prática de aprendizagem em desenvolvimento de software, infraestrutura e práticas DevOps.
 
-Ambiente de laboratório para praticar desenvolvimento, testes, conteinerização, integração contínua e qualidade de código.
+A proposta é aprender fazendo: experimentar tecnologias, compreender seu funcionamento, testar diferentes abordagens, identificar problemas e implementar melhorias.
 
-## 2. Tecnologias e ferramentas
+## Objetivos do treinamento
 
-- Python e Django
-- Docker e Docker Compose
-- Pytest, Coverage.py e Playwright
-- Git e GitHub Actions
-- Pysonar e SonarQube
+O principal objetivo é desenvolver conhecimentos e habilidades técnicas nas diferentes etapas do ciclo de vida de uma aplicação de software.
 
-## 3. Ambiente de testes
+Entre os objetivos específicos estão:
 
-Máquina virtual `ronaldo-test`, com aplicação Django executada em contêiner Docker.
+- **Desenvolvimento de software:** aprender a construir e manter aplicações web utilizando Python e Django.
+- **Controle de versão:** praticar Git e GitHub, incluindo commits, branches e gerenciamento de repositórios.
+- **Conteinerização:** compreender Docker e Docker Compose e a administração de ambientes com múltiplos serviços.
+- **Testes de software:** desenvolver testes automatizados, testes de integração e testes de ponta a ponta.
+- **Integração contínua:** experimentar pipelines automatizados com GitHub Actions.
+- **Qualidade de código:** utilizar ferramentas de análise estática e acompanhar indicadores de qualidade.
+- **Observabilidade:** estudar a coleta e visualização de métricas com Prometheus e Grafana.
+- **Monitoramento de infraestrutura:** utilizar Zabbix para acompanhar o sistema operacional e os contêineres Docker.
+- **Operação de aplicações:** explorar implantação, configuração, persistência de dados e recuperação de serviços.
 
-## 4. Execução com Docker Compose
+## Atividades realizadas
 
-Iniciar a aplicação:
+Ao longo do treinamento, foram desenvolvidas e experimentadas as seguintes atividades:
 
-```bash
-docker compose up -d --build
-```
+- Desenvolvimento de uma aplicação web utilizando Django.
+- Estruturação do ambiente de execução com Docker e Docker Compose.
+- Implementação de testes automatizados e testes E2E com Playwright.
+- Configuração de cobertura de testes.
+- Integração com GitHub Actions para execução automatizada de testes.
+- Configuração de análise estática com SonarCloud e acompanhamento do Quality Gate.
+- Implementação de logs estruturados e endpoint de saúde da aplicação.
+- Instrumentação da aplicação para exposição de métricas.
+- Configuração do Prometheus para coleta de métricas.
+- Criação de dashboards no Grafana para acompanhamento da aplicação.
+- Configuração de alertas de disponibilidade e desempenho.
+- Instalação e configuração do Zabbix 8.0 em ambiente Debian.
+- Integração do Zabbix Agent 2 com a API do Docker.
+- Configuração da descoberta automática de contêineres.
+- Monitoramento individual de CPU e memória dos contêineres.
+- Criação e teste de triggers para identificação de contêineres parados.
 
-Verificar os serviços:
+## Tecnologias e ferramentas
 
-```bash
-docker compose ps
-```
+| Área | Tecnologias |
+|---|---|
+| Desenvolvimento | Python, Django e Gunicorn |
+| Conteinerização | Docker e Docker Compose |
+| Testes | Pytest, Coverage.py e Playwright |
+| Versionamento | Git e GitHub |
+| Integração contínua | GitHub Actions |
+| Qualidade | SonarCloud |
+| Métricas | Prometheus |
+| Dashboards | Grafana |
+| Monitoramento | Zabbix |
+| Sistema operacional | Debian GNU/Linux |
 
-Consultar os logs:
+## Próximas etapas
 
-```bash
-docker compose logs --tail=30 web
-```
-
-Encerrar os serviços:
-
-```bash
-docker compose down
-```
-
-## 5. Testes e cobertura
-
-Executar os testes:
-
-```bash
-pytest
-```
-
-Gerar relatório de cobertura:
-
-```bash
-pytest --cov=src/myauth --cov-report=term-missing --cov-report=xml:coverage.xml
-```
-
-## 6. Integração contínua
-
-Pipeline automatizado com GitHub Actions.
-
-[Consultar execuções](https://github.com/karlwis/projeto-ronaldo/actions)
-
-## 7. Análise estática
-
-Análise com Pysonar e SonarQube, com Quality Gate configurado. A última análise registrada foi aprovada.
-
-## 8. Versionamento
-
-Código-fonte versionado com Git e hospedado no GitHub.
-
-[Repositório Projeto Ronaldo](https://github.com/karlwis/projeto-ronaldo)
-
-## 9. Próximos passos
-
-- Aprimorar o deploy e o versionamento de imagens Docker.
-- Estudar monitoramento e observabilidade.
-- Praticar orquestração de contêineres.
-- Explorar infraestrutura em nuvem.
+- Evoluir a arquitetura da aplicação.
+- Estudar a utilização do PostgreSQL na aplicação.
+- Aprimorar o processo de implantação.
+- Implementar estratégias de rollback.
+- Configurar DNS e acesso por domínio.
+- Ampliar os alertas de infraestrutura e aplicação.
+- Aprimorar a documentação técnica.
+- Explorar outras possibilidades de infraestrutura e orquestração.
