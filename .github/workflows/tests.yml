@@ -10,9 +10,29 @@ jobs:
   testes:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_DB: projeto_ronaldo
+          POSTGRES_USER: ronaldo
+          POSTGRES_PASSWORD: teste-ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U ronaldo -d projeto_ronaldo"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     env:
       SECRET_KEY: "chave-falsa-exclusiva-para-testes"
       DEBUG: "False"
+      DB_NAME: projeto_ronaldo
+      DB_USER: ronaldo
+      DB_PASSWORD: teste-ci
+      DB_HOST: localhost
+      DB_PORT: "5432"
 
     steps:
       - name: Baixar o código
